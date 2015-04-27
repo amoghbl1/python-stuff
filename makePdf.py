@@ -6,11 +6,12 @@ from pyPdf import PdfFileWriter, PdfFileReader
 if len(sys.argv) == 1:
     print "USAGE: makePdf folder_name"
     sys.exit(2)
-path = sys.argv[1]
+path = sys.argv[1]+"/"
 output = PdfFileWriter()
 images = os.listdir(path)
+images.sort()
 for i in images: # Create temporary images and save them as pdfs
-    imagePath = path+"/"+i
+    imagePath = path+i
     print imagePath
     tempImagePath = imagePath+".temp"
     img = Image.open(imagePath)
