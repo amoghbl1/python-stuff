@@ -9,7 +9,8 @@ if len(sys.argv) == 1:
 path = sys.argv[1]+"/"
 output = PdfFileWriter()
 images = os.listdir(path)
-images.sort()
+# Set the key here based on what we are using to order the images
+images = sorted(images, key=lambda x: int(x.split('.')[0]))
 for i in images: # Create temporary images and save them as pdfs
     imagePath = path+i
     print imagePath
